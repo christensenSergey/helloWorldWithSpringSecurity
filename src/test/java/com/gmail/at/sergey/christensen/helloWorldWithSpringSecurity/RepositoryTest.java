@@ -1,4 +1,4 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -17,8 +17,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.entities.User;
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.repositories.UserRepository;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.entities.User;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.repositories.UserRepository;
 
 @Transactional
 public class RepositoryTest extends HelloWorldWithSpringSecurityApplicationTests{

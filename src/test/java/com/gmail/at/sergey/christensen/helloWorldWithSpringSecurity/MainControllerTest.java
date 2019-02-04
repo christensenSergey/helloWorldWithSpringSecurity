@@ -1,4 +1,4 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -17,8 +17,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.View;
 
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.controllers.MainController;
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.service.interfaces.UserService;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.controllers.MainController;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.service.interfaces.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

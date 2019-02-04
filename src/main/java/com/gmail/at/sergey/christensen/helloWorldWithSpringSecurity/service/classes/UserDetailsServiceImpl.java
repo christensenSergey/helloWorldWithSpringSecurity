@@ -1,4 +1,4 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.service.classes;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity.service.classes;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.entities.User;
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.service.interfaces.UserService;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.entities.User;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.service.interfaces.UserService;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

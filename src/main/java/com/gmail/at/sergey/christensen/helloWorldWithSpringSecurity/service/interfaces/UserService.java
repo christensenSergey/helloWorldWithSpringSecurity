@@ -1,6 +1,6 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.service.interfaces;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity.service.interfaces;
 
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.entities.User;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.entities.User;
 
 public interface UserService {
 

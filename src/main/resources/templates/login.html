@@ -5,37 +5,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}" />
+		<link rel="stylesheet" th:href="@{/css/appStyle.css}" />
 		
 		<script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
 		<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
-		
-		<script>
-			$(document).ready(function() {
-			    var results = new RegExp('[\?&]' + 'error' + '=([^&#]*)').exec(window.location.href);
-			    if (results!=null) {
-			    	$("#dangerAlert").show();
-			    }
-			});
-		</script>
-		
+		<script th:src="@{/js/login.js}"></script>
     </head>
 	<body>
-		<div align="center">
-			<form method="POST" action="/login"	class="form-signin" style="width: 350px; margin-top:10%">
-				<div class="alert alert-danger" id="dangerAlert" role="alert" style="display: none;">
+		<div class="container" align="center">
+			<form method="POST" action="/login"	class="form-signin" >
+				<div class="alert alert-danger" id="dangerAlert" role="alert">
 					Wrong credentials!
 				</div>
-				<div class="form-group" style="margin:auto;">
-				<input name="login" type="text"	class="form-control" placeholder="Login" autofocus="true" required />
-				<br>
-				<input name="password" type="password" class="form-control"	placeholder="Password" required />
-				<br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-				<br>
+				<input name="login" type="text"	class="form-control marginBottom" placeholder="Login" autofocus required />
+				<input name="password" type="password" class="form-control marginBottom" placeholder="Password" required />
+				<button class="btn btn-lg btn-primary btn-block marginBottom" type="submit">Sign in</button>
 				<h4>
 					<a th:href="@{/registration}">Create account</a>
 				</h4>
-				</div>
 			</form>
 		</div>
     </body>

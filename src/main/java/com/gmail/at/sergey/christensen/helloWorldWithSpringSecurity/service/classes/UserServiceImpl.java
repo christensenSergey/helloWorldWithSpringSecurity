@@ -1,12 +1,12 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.service.classes;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity.service.classes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.entities.User;
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.repositories.UserRepository;
-import com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.service.interfaces.UserService;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.entities.User;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.repositories.UserRepository;
+import com.gmail.at.sergey.christensen.helloworldwithspringsecurity.service.interfaces.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -30,19 +30,19 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public String checkPasswordWithRegexp(String password) {
-		String weakPattern = "(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{8,}";
-    	String normalPattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}";
-    	String strongPattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
-    	if(password.matches(strongPattern)) {
+		final String WEAK_PATTERN = "(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{8,}";
+		final String NORMAL_PATTERN = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}";
+		final String STRONG_PATTERN = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+
+		if(password.matches(STRONG_PATTERN)) {
     		return "strong";
     	}
-    	if(password.matches(normalPattern)) {
+    	if(password.matches(NORMAL_PATTERN)) {
     		return "normal";
     	}
-    	if(password.matches(weakPattern)) {
+    	if(password.matches(WEAK_PATTERN)) {
     		return "weak";
     	}
         return "noPatternMatch";
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.entities;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity.entities;
 
 import java.io.Serializable;
 
@@ -20,8 +20,7 @@ public class User implements Serializable{
 		super();
 	}
 	
-	public User(@NotBlank(message = "Login may not be blank") String login,
-			@NotBlank(message = "Password may not be blank") String password) {
+	public User(String login, String password) {
 		super();
 		this.login = login;
 		this.password = password;

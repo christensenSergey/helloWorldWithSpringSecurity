@@ -1,4 +1,4 @@
-package com.gmail.at.sergey.christensen.helloWorldWithSpringSecurity.configuration;
+package com.gmail.at.sergey.christensen.helloworldwithspringsecurity.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +19,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 
 	@Bean
+	public BCryptPasswordEncoder getBCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
@@ -31,24 +36,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().antMatchers("/webjars/**", "/login", "/registration",
-        		"/api/registration", "/js/registration.js", "/accessDenied").permitAll();
-        httpSecurity.authorizeRequests().anyRequest().authenticated();
- 
-        httpSecurity.formLogin()
-		.loginPage("/login").usernameParameter("login").passwordParameter("password")
-		.failureUrl("/login?error=error").defaultSuccessUrl("/", true).and()
-		.sessionManagement().maximumSessions(1); // avoiding multiple login
-
-        httpSecurity.exceptionHandling().accessDeniedPage("/accessDenied");
-		
-        httpSecurity.csrf().disable();
-        httpSecurity.headers().frameOptions().disable();
+        httpSecurity
+        	.csrf()
+        		.disable()
+        	.headers()
+        		.frameOptions()
+        		.disable()
+        	.and()
+        	.authorizeRequests()
+        		.antMatchers("/webjars/**", "/login", "/registration",
+        		"/api/registration", "/js/registration.js", "/js/login.js",
+        		"/css/appStyle.css", "/accessDenied")
+        		.permitAll()
+        	.and()
+        	.authorizeRequests()
+        		.anyRequest()
+        		.authenticated()
+ 	        .and()
+ 	        .formLogin()
+ 	        	.loginPage("/login")
+ 	        	.usernameParameter("login")
+ 	        	.passwordParameter("password")
+ 	        	.failureUrl("/login?error=error")
+ 	        	.defaultSuccessUrl("/", true)
+			.and()
+			.exceptionHandling()
+				.accessDeniedPage("/accessDenied")
+			.and()
+			.sessionManagement()
+				.maximumSessions(1); // avoiding multiple login
     }
-    
-	@Bean
-	public BCryptPasswordEncoder getBCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-
 }
