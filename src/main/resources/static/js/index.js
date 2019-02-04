@@ -1,6 +1,11 @@
 $(document).ready(function() {
 	$("#newPassword").keyup(function() {
 		checkPasswordStrength();
+		if($("#newPassword").val() != "") {
+			$("#progressBarDiv").attr('hidden', false);
+		} else {
+			$("#progressBarDiv").attr('hidden', true);
+		}
 		$("#dangerAlert").hide();
 	});
 });
