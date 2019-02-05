@@ -49,7 +49,7 @@ public class MainControllerTest {
     public void testLogin() throws Exception {
          mockMvc.perform(get("/login"))
             .andExpect(status().isOk())
-         	.andExpect(view().name("login"));
+         	.andExpect(view().name("redirect:/"));
     }
     
     @Test
